@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="07e442cc-6891-4d0f-85c1-29eb4c231a29" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/BookDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/BorrowDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/BorrowDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/service/BorrowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/service/BorrowService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/library/BookServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/library/BookServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/library/BorrowServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/library/BorrowServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/library/StudentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/library/StudentServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +15,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -38,54 +30,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DbConnection.executor": "Run",
-    "Application.Main.executor": "Run",
-    "JUnit.BookServiceTest.executor": "Run",
-    "JUnit.BookServiceTest.testAddBook.executor": "Run",
-    "JUnit.BookServiceTest.testDeleteAllBooks.executor": "Run",
-    "JUnit.BookServiceTest.testDeleteBook.executor": "Run",
-    "JUnit.BookServiceTest.testFindBookById.executor": "Run",
-    "JUnit.BookServiceTest.testUpdateBook.executor": "Run",
-    "JUnit.BorrowServiceTest.executor": "Run",
-    "JUnit.BorrowServiceTest.testBorrowBook.executor": "Run",
-    "JUnit.BorrowServiceTest.testBorrowBookNotAvailable.executor": "Run",
-    "JUnit.BorrowServiceTest.testBorrowBookStudentNotFound.executor": "Run",
-    "JUnit.BorrowServiceTest.testDeleteAllBorrows.executor": "Run",
-    "JUnit.BorrowServiceTest.testReturnBook.executor": "Run",
-    "JUnit.BorrowServiceTest.testUpdateBorrow.executor": "Run",
-    "JUnit.StudentServiceTest.executor": "Run",
-    "JUnit.StudentServiceTest.testAddStudent.executor": "Run",
-    "JUnit.StudentServiceTest.testUpdateStudent.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.Test_Library [clean].executor": "Run",
-    "Maven.Test_Library [compile].executor": "Run",
-    "Maven.Test_Library [test].executor": "Run",
-    "Maven.Test_Library [validate].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/hp/Desktop/Test_Library/src/test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.28735632",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DbConnection.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testAddBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testDeleteAllBooks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testDeleteBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testFindBookById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testUpdateBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowServiceTest.testBorrowBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowServiceTest.testBorrowBookNotAvailable.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowServiceTest.testBorrowBookStudentNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowServiceTest.testDeleteAllBorrows.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowServiceTest.testReturnBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowServiceTest.testUpdateBorrow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StudentServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StudentServiceTest.testAddStudent.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StudentServiceTest.testUpdateStudent.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Test_Library [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Test_Library [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Test_Library [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Test_Library [validate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/Desktop/Test_Library/src/test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.28735632&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hp\Desktop\Test_Library\src\test" />
       <recent name="C:\Users\hp\Desktop\Test_Library\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StudentServiceTest">
+  <component name="RunManager" selected="JUnit.BookServiceTest">
     <configuration name="BookServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Test_Library" />
       <extension name="coverage">
@@ -165,8 +157,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StudentServiceTest" />
         <item itemvalue="JUnit.BookServiceTest" />
+        <item itemvalue="JUnit.StudentServiceTest" />
         <item itemvalue="JUnit.BorrowServiceTest" />
         <item itemvalue="JUnit.BorrowServiceTest.testDeleteAllBorrows" />
         <item itemvalue="JUnit.BorrowServiceTest.testUpdateBorrow" />
@@ -190,7 +182,8 @@
       <updated>1734380727208</updated>
       <workItem from="1734380728686" duration="862000" />
       <workItem from="1734436586369" duration="833000" />
-      <workItem from="1734437549600" duration="16328000" />
+      <workItem from="1734437549600" duration="16647000" />
+      <workItem from="1734467396306" duration="1206000" />
     </task>
     <servers />
   </component>
