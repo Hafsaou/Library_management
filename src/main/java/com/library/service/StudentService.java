@@ -17,8 +17,15 @@ public class StudentService {
         this.studentDAO = studentDAO;
     }
 
-    
 
+    // Supprimer un étudiant par ID
+    public void deleteStudent(int id) {
+        try {
+            studentDAO.deleteStudent(id);
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la suppression de l'étudiant : " + e.getMessage());
+        }
+    }
     // Ajouter un étudiant
     public void addStudent(Student student) {
         try {

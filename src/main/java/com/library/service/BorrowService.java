@@ -3,9 +3,12 @@ package com.library.service;
 
 import com.library.dao.BookDAO;
 import com.library.dao.StudentDAO;
+import com.library.model.Book;
 import com.library.model.Student;
 import com.library.dao.BorrowDAO;
 import com.library.model.Borrow;
+
+import java.util.List;
 
 public class BorrowService {
 
@@ -17,14 +20,30 @@ public class BorrowService {
     }
 
     // Méthode pour emprunter un livre
-    public void borrowBook(Borrow borrow) {
+    public String borrowBook(Borrow borrow) {
         // Sauvegarde de l'emprunt dans la base de données
-        borrowDAO.save(borrow);
+        return borrowDAO.addBorrow(borrow);
     }
 
-    // Afficher les emprunts (méthode fictive, à adapter)
-    public void displayBorrows() {
-        System.out.println("Liste des emprunts...");
-        // Afficher les emprunts enregistrés (adapté selon votre DAO)
+    public String deleteBorrow(int id) {
+        return borrowDAO.deleteBorrow(id);
+    }
+
+    public  List<Borrow> displayBorrows() {
+        List<Borrow> borrows = borrowDAO.getAllBorrows();
+        if(borrows != null)
+        {
+            for (Borrow borrow : borrows) {
+                System.out.println(borrow.getId());
+            }
+        }
+        return borrows;
+    }
+    public String deleteAllBorrows() {
+        return borrowDAO.deleteAll();
+    }
+
+    public String updateBorrow(Borrow borrow) {
+        return borrowDAO.save(borrow);
     }
 }

@@ -36,6 +36,21 @@ public class StudentDAO {
             LOGGER.log(Level.SEVERE, "Erreur lors de l'ajout de l'étudiant", e);
         }
     }
+    public static int getLastInsertedStudentId() {
+        String query = "SELECT id FROM students ORDER BY id DESC LIMIT 1";
+        try (Connection connection = DbConnection.getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                System.out.println(rs.getInt("id"));
+                return rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;  // Retourne -1 si aucune entrée n'est trouvée
+    }
+
 
     public Student getStudentById(int id) {
         String query = "SELECT * FROM students WHERE id = ?";

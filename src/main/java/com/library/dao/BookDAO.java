@@ -12,14 +12,14 @@ public class BookDAO {
     private final Logger logger = Logger.getLogger(BookDAO.class.getName());
     // Ajouter un nouveau livre dans la base de données
     public String add(Book book) {
-        String sql = "INSERT INTO books (title, author, isbn, published_year) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO books (id,title, author, isbn, published_year) VALUES (?,?, ?, ?, ?)";
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
-             
-            statement.setString(1, book.getTitle());
-            statement.setString(2, book.getAuthor());
-            statement.setString(3, book.getIsbn());
-            statement.setInt(4, book.getPublishedYear());
+            statement.setInt(1, book.getId());   // Notez que l'index commence à 1
+            statement.setString(2, book.getTitle());
+            statement.setString(3, book.getAuthor());
+            statement.setString(4, book.getIsbn());
+            statement.setInt(5, book.getPublishedYear());
             
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -86,7 +86,7 @@ public class BookDAO {
             preparedStatement.setInt(1, id);
             int rowsDeleted = preparedStatement.executeUpdate();
             if (rowsDeleted > 0) {
-                return "Book successfully deleted";
+                return "Book successfully deleted!";
             }
         } catch (SQLException e) {
             logger.severe("Error: " + e.getMessage());
@@ -95,7 +95,21 @@ public class BookDAO {
     }
 
 
+    public  static int getLastInsertedBookId() {
+        String query = "SELECT id FROM books ORDER BY id DESC LIMIT 1";
+        try (Connection connection = DbConnection.getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                System.out.println(rs.getInt("id"));
+                return rs.getInt("id");
 
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;  // Retourne -1 si aucun livre n'est trouvé
+    }
 
     public String update(Book book) {
         String sql = "UPDATE books SET title = ?, author = ?, isbn = ?, published_year = ? WHERE id = ?";
@@ -111,7 +125,7 @@ public class BookDAO {
 
             int rowsUpdated = preparedStatement.executeUpdate();
             if (rowsUpdated > 0) {
-                return "Book updated successfully!";
+                return "Livre mis à jour avec succès !";
             }
         } catch (SQLException e) {
             logger.severe("Error: " + e.getMessage());
@@ -149,7 +163,7 @@ public class BookDAO {
              Statement statement = connection.createStatement()) {
 
             statement.executeUpdate(sql);
-            return "Tous les livres ont été supprimés avec succès !";
+            return "All books deleted successfully!";
         } catch (SQLException e) {
             logger.severe("Erreur lors de la suppression de tous les livres : " + e.getMessage());
             return "Erreur lors de la suppression de tous les livres : ";

@@ -42,9 +42,24 @@ public class BorrowDAO {
         return borrows;
     }
 
-public void save(Borrow borrow) {
+    public static int getLastInsertedBorrowId() {
+        String query = "SELECT id FROM borrows ORDER BY id DESC LIMIT 1";
+        try (Connection connection = DbConnection.getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                System.out.println(rs.getInt("id"));
+                return rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;  // Retourne -1 si aucune entrée n'est trouvée
+    }
 
-    String query = "UPDATE borrows SET member = ?, book = ?, borrow_date = ?, return_date = ? WHERE id = ?";
+    public String save(Borrow borrow) {
+
+    String query = "UPDATE borrows SET student_id = ?, book_id = ?, borrow_date = ?, return_date = ? WHERE id = ?";
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, borrow.getId());
@@ -53,8 +68,11 @@ public void save(Borrow borrow) {
             stmt.setDate(4, new java.sql.Date(borrow.getBorrowDate().getTime()));
             stmt.setDate(5, new java.sql.Date(borrow.getReturnDate().getTime()));
             stmt.executeUpdate();
+            return "Emprunt mis à jour avec succès!";
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            LOGGER.severe("Erreur lors de la mise à jour de l'emprunt : " + e.getMessage());
+            return "Erreur lors de la mise à jour de l'emprunt!";
         }
     
 
@@ -62,18 +80,19 @@ public void save(Borrow borrow) {
 
 
 
-    public void addBorrow(Borrow borrow) {
-        String query = "INSERT INTO borrows (id, member, book, borrow_date, return_date) VALUES (?, ?, ?, ?, ?)";
+    public String  addBorrow(Borrow borrow) {
+        String query = "INSERT INTO borrows (student_id, book_id, borrow_date, return_date) VALUES ( ?, ?, ?, ?)";
         try (Connection connection = DbConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(0, borrow.getId());
             stmt.setInt(1, borrow.getStudent().getId());
             stmt.setInt(2, borrow.getBook().getId());
             stmt.setDate(3, new java.sql.Date(borrow.getBorrowDate().getTime()));
             stmt.setDate(4, new java.sql.Date(borrow.getReturnDate().getTime()));
             stmt.executeUpdate();
+            return "Livre emprunté avec succès!";
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return "Étudiant ou livre non trouvé.";
         }
     }
     public Borrow getById(int id) {
@@ -106,7 +125,7 @@ public void save(Borrow borrow) {
         try (PreparedStatement stmt = DbConnection.getConnection().prepareStatement(query)) {
             stmt.setInt(1, id);
             stmt.executeUpdate();
-            return "book returned";
+            return "Livre retourné avec succès!";
         } catch (SQLException e) {
              return "returning error";
         }
@@ -116,7 +135,7 @@ public void save(Borrow borrow) {
         String query = "DELETE FROM borrows";
         try (Statement stm = DbConnection.getConnection().createStatement()) {
                stm.executeUpdate(query);
-               return "books returned";
+               return "Tous les livres ont été retournés avec succès!";
         } catch (SQLException e) {
              return "books not returned";
         }
