@@ -25,9 +25,9 @@ public class DbConnection {
             FileInputStream fis = new FileInputStream("config.properties");
             props.load(fis);
 
-            URL = props.getProperty("DB.URL");
-            USER = props.getProperty("DB.USER");
-            PASSWORD = props.getProperty("DB.PASSWORD");
+            URL = props.getProperty("db.url");
+            USER = props.getProperty("db.user");
+            PASSWORD = props.getProperty("db.password");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
