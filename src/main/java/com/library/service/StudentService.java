@@ -1,12 +1,17 @@
 package com.library.service;
 
+import com.library.dao.BookDAO;
 import com.library.dao.StudentDAO;
 import com.library.model.Student;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class StudentService {
+    private final Logger logger = Logger.getLogger(StudentService.class.getName());
+
     private StudentDAO studentDAO;
+
 
     public StudentService() {
     this.studentDAO = new StudentDAO();
@@ -23,7 +28,7 @@ public class StudentService {
         try {
             studentDAO.deleteStudent(id);
         } catch (Exception e) {
-            System.err.println("Erreur lors de la suppression de l'étudiant : " + e.getMessage());
+            logger.severe("Erreur lors de la suppression de l'étudiant : " + e.getMessage());
         }
     }
     // Ajouter un étudiant
@@ -31,7 +36,7 @@ public class StudentService {
         try {
             studentDAO.addStudent(student);
         } catch (Exception e) {
-            System.err.println("adding student error " + e.getMessage());
+            logger.severe("adding student error : " + e.getMessage());
         }
     }
 
@@ -43,7 +48,7 @@ public class StudentService {
                 System.out.println("ID: " + student.getId() + " | Nom: " + student.getName());
             }
         } catch (Exception e) {
-            System.err.println("display student error : " + e.getMessage());
+            logger.severe("display student error  : " + e.getMessage());
         }
     }
 
@@ -52,7 +57,7 @@ public class StudentService {
         try {
             return studentDAO.getStudentById(id);
         } catch (Exception e) {
-            System.err.println("Erreur lors de la recherche de l'étudiant par ID : " + e.getMessage());
+            logger.severe("Erreur lors de la recherche de l'étudiant par ID  : " + e.getMessage());
         }
         return null;
     }
@@ -65,7 +70,7 @@ public class StudentService {
         try {
             studentDAO.deleteAllStudents();
         } catch (Exception e) {
-            System.err.println("Erreur lors de la suppression de tous les étudiants : " + e.getMessage());
+            logger.severe("Erreur lors de la suppression de tous les étudiants  : " + e.getMessage());
         }
     }
 }
