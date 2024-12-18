@@ -54,14 +54,16 @@ pipeline {
     }
     post {
         success {
-            emailext to: 'hafsaougha17@gmail.com',
-                subject: 'Build Success',
-                body: 'Le build a été complété avec succès.'
+//             emailext to: 'hafsaougha17@gmail.com',
+//                 subject: 'Build Success',
+//                 body: 'Le build a été complété avec succès.'
+         echo 'succes'
         }
         failure {
-            emailext to: 'hafsaougha17@gmail.com',
-                subject: 'Build Failed',
-                body: 'Le build a échoué.'
+//             emailext to: 'hafsaougha17@gmail.com',
+//                 subject: 'Build Failed',
+//                 body: 'Le build a échoué.'
+echo 'fail'
         }
     }
 }
