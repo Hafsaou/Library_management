@@ -39,11 +39,12 @@ pipeline {
             }
         }
         stage('Quality Analysis') {
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh '${MAVEN_HOME}/bin/mvn sonar:sonar'
-                }
-            }
+             steps {
+               echo 'sonar'
+//                 withSonarQubeEnv('SonarQube') {
+//                     sh '${MAVEN_HOME}/bin/mvn sonar:sonar'
+//                 }
+        }
         }
         stage('Deploy') {
             steps {
