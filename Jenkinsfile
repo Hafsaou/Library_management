@@ -15,7 +15,14 @@ pipeline {
                                    sh "git pull origin main"
                                }
                            } else {
-                               sh "git clone https://${GITHUB_PAT}@github.com/Hafsaou/Library_management.git"
+                           def cloneStatus = sh(script: "git clone https://${GITHUB_PAT}@github.com/Hafsaou/Library_management.git", returnStatus: true)
+                                                       // Vérification du statut de la commande de clonage
+                                                       if (cloneStatus == 0) {
+                                                           echo "Cloning succeeded."
+                                                       } else {
+                                                           echo "Cloning failed."
+                                                       }
+                             //  sh "git clone https://${GITHUB_PAT}@github.com/Hafsaou/Library_management.git"
                            }
                            }
                        }
@@ -23,7 +30,7 @@ pipeline {
                }
         stage('Build') {
             steps {
-                sh '${MAVEN_HOME}/bin/mvn clean compile'
+                sh '${MAVEN_HOME}/bin/mvn clean install'
             }
         }
         stage('Test') {
