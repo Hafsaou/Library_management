@@ -5,14 +5,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnection {
-    private static final String URL = "jdbc:mysql://localhost:3307/library_db";
+    private static final String URL = "jdbc:mysql://host.docker.internal:3307/library_db";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
     public static Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("bien connecte");
             return DriverManager.getConnection(URL, USER, PASSWORD);
+
         } catch (ClassNotFoundException | SQLException e) {
             throw new SQLException("Database connection error", e);
         }
@@ -20,5 +22,6 @@ public class DbConnection {
 
     public static void main(String[] args) throws SQLException {
       Connection connection=  DbConnection.getConnection();
+
     }
 }
