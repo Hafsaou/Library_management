@@ -4,11 +4,23 @@ pipeline {
         MAVEN_HOME = tool 'Maven'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/votre-depot/GestionBibliotheque.git'
-            }
-        }
+       stage('checkout') {
+                   steps {
+                       script {
+                       withCredentials([string(credentialsId: 'git_token', variable: 'GITHUB_PAT')]) {
+                           if (fileExists('Library-management')) {
+                               dir('Library-management') {
+                                   sh "git reset --hard"
+                                   sh "git clean -fd"
+                                   sh "git pull origin main"
+                               }
+                           } else {
+                               sh "git clone https://${GITHUB_PAT}@github.com/Hafsaou/Library_management.git"
+                           }
+                           }
+                       }
+                   }
+               }
         stage('Build') {
             steps {
                 sh '${MAVEN_HOME}/bin/mvn clean compile'
