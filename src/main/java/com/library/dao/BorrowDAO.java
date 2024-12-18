@@ -93,30 +93,7 @@ public class BorrowDAO {
             return "Étudiant ou livre non trouvé.";
         }
     }
-    public Borrow getById(int id) {
-        StudentDAO studentDAO = new StudentDAO();
-        BookDAO bookDAO = new BookDAO();
-        String query = "SELECT * FROM borrows WHERE id = ?";
-        Student student;
-        Book book;
-        try (PreparedStatement stmt = DbConnection.getConnection().prepareStatement(query)) {
-            stmt.setInt(1, id);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    student = studentDAO.getStudentById(rs.getInt("member"));
-                    book = bookDAO.getBookById(rs.getInt("book"));
-                    return new Borrow(
-                            rs.getInt("id"),
-                            student,
-                            book,
-                            rs.getDate("borrow_date"),
-                            rs.getDate("return_date"));
-                }
-            }
-        } catch (SQLException e) {
-         }
-        return null;
-    }
+
 
     public String deleteBorrow(int id) {
         String query = "DELETE FROM borrows WHERE id = ?";

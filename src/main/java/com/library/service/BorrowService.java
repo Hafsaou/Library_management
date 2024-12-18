@@ -1,10 +1,6 @@
 
 package com.library.service;
 
-import com.library.dao.BookDAO;
-import com.library.dao.StudentDAO;
-import com.library.model.Book;
-import com.library.model.Student;
 import com.library.dao.BorrowDAO;
 import com.library.model.Borrow;
 
