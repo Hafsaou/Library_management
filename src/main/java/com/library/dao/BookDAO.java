@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class BookDAO {
     private final Logger logger = Logger.getLogger(BookDAO.class.getName());
-    private static final Logger logger1 = Logger.getLogger(DbConnection.class.getName());
+    private static final Logger logger1 = Logger.getLogger(BookDAO.class.getName());
     // Ajouter un nouveau livre dans la base de données
     public String add(Book book) {
         String sql = "INSERT INTO books (id,title, author, isbn, published_year) VALUES (?,?, ?, ?, ?)";
