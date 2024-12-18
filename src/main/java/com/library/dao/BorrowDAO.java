@@ -37,7 +37,7 @@ public class BorrowDAO {
                 borrows.add(borrow);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error: sql exception "+e.getMessage());
         }
         return borrows;
     }
@@ -52,7 +52,7 @@ public class BorrowDAO {
                 return rs.getInt("id");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error: sql exception "+e.getMessage());
         }
         return -1;  // Retourne -1 si aucune entrée n'est trouvée
     }
@@ -70,7 +70,6 @@ public class BorrowDAO {
             stmt.executeUpdate();
             return "Emprunt mis à jour avec succès!";
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
             LOGGER.severe("Erreur lors de la mise à jour de l'emprunt : " + e.getMessage());
             return "Erreur lors de la mise à jour de l'emprunt!";
         }
@@ -91,7 +90,6 @@ public class BorrowDAO {
             stmt.executeUpdate();
             return "Livre emprunté avec succès!";
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
             return "Étudiant ou livre non trouvé.";
         }
     }

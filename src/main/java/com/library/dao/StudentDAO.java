@@ -46,7 +46,7 @@ public class StudentDAO {
                 return rs.getInt("id");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error: sql exception "+e.getMessage());
         }
         return -1;  // Retourne -1 si aucune entrée n'est trouvée
     }
