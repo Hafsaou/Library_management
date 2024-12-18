@@ -107,7 +107,7 @@ public class BookDAO {
 
             }
         } catch (SQLException e) {
-            logger1.severe("Erreur lors de la suppression de tous les livres : " + e.getMessage());
+            logger1.severe("Erreur lors de la recuperation du index max : " + e.getMessage());
         }
         return -1;  // Retourne -1 si aucun livre n'est trouvé
     }
@@ -166,7 +166,7 @@ public class BookDAO {
             statement.executeUpdate(sql);
             return "All books deleted successfully!";
         } catch (SQLException e) {
-            logger.severe("Erreur lors de la suppression de tous les livres : " + e.getMessage());
+            logger.severe("Error : Erreur lors de la suppression de tous les livres : " + e.getMessage());
             return "Erreur lors de la suppression de tous les livres : ";
         }
     }
