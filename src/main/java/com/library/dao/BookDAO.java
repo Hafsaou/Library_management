@@ -106,7 +106,7 @@ public class BookDAO {
 
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("sql exception "+e.getMessage());
         }
         return -1;  // Retourne -1 si aucun livre n'est trouvé
     }
