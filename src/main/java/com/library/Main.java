@@ -21,7 +21,7 @@ public class Main {
         BorrowDAO borrowDAO = new BorrowDAO();  // Création de BorrowDAO
         BorrowService borrowService = new BorrowService(borrowDAO);  // Passer BorrowDAO au constructeur de BorrowService
         Book book = new Book("Effective Java", "Joshua Bloch", "123456", 2017);
-        Borrow borrow = new Borrow(1, student, book, new Date(), new Date());
+
         
         boolean running = true;
 
@@ -77,7 +77,7 @@ public class Main {
                     Book bookForBorrow = bookService.findBookById(bookId);
                     if (studentForBorrow != null && bookForBorrow != null) {
                         // Créer un objet Borrow avec les informations nécessaires
-                        borrow = new Borrow(studentForBorrow, bookForBorrow, new Date(), null);
+                     Borrow borrow = new Borrow(studentForBorrow, bookForBorrow, new Date(), null);
                         borrowService.borrowBook(borrow);  // Appel de la méthode avec l'objet Borrow
                     } else {
                         System.out.println("Étudiant ou livre introuvable.");

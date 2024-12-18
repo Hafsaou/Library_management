@@ -41,7 +41,6 @@ public class DbConnection {
             try {
                 throw new ConfigurationException("Error loading configuration file", e);
             } catch (ConfigurationException ex) {
-                throw new RuntimeException(ex);
             }
 
         }
@@ -53,13 +52,15 @@ public class DbConnection {
      * DbConnection should be used through its static methods.
      */
     public DbConnection() throws FileNotFoundException {
+        // This constructor is empty because DbConnection should only be used through its static methods.
+        // It is not intended for direct instantiation. If invoked, an UnsupportedOperationException is thrown.
+        throw new UnsupportedOperationException("DbConnection should be used through its static methods, not instantiated directly.");
     }
 
     public static Connection getConnection() throws SQLException {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("bien connecte");
             return DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -67,8 +68,4 @@ public class DbConnection {
         }
     }
 
-    public static void main(String[] args) throws SQLException {
-      Connection connection=  DbConnection.getConnection();
-
-    }
 }
