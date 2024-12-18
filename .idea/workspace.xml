@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07e442cc-6891-4d0f-85c1-29eb4c231a29" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/BorrowDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/BorrowDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/BookDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +85,7 @@
       <recent name="C:\Users\hp\Desktop\Test_Library\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StudentServiceTest">
+  <component name="RunManager" selected="JUnit.BookServiceTest">
     <configuration name="DbConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.library.util.DbConnection" />
       <module name="Test_Library" />
@@ -159,9 +159,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BookServiceTest" />
         <item itemvalue="JUnit.StudentServiceTest" />
         <item itemvalue="Application.DbConnection" />
-        <item itemvalue="JUnit.BookServiceTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BorrowServiceTest" />
       </list>
@@ -189,7 +189,7 @@
       <workItem from="1734476140494" duration="635000" />
       <workItem from="1734477038652" duration="59000" />
       <workItem from="1734516480154" duration="10510000" />
-      <workItem from="1734560859017" duration="1414000" />
+      <workItem from="1734560859017" duration="1803000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 public class BookDAO {
     private final Logger logger = Logger.getLogger(BookDAO.class.getName());
+    private static final Logger logger1 = Logger.getLogger(DbConnection.class.getName());
     // Ajouter un nouveau livre dans la base de données
     public String add(Book book) {
         String sql = "INSERT INTO books (id,title, author, isbn, published_year) VALUES (?,?, ?, ?, ?)";
@@ -50,7 +51,7 @@ public class BookDAO {
                 book.setPublishedYear(resultSet.getInt("published_year"));
             }
         } catch (SQLException e) {
-            System.err.println("Erreur lors de la récupération du livre : " + e.getMessage());
+            logger.severe("Erreur lors de la récupération du livre : " + e.getMessage());
         }
         
         return book;
@@ -106,7 +107,7 @@ public class BookDAO {
 
             }
         } catch (SQLException e) {
-            System.err.println("sql exception "+e.getMessage());
+            logger1.severe("Erreur lors de la suppression de tous les livres : " + e.getMessage());
         }
         return -1;  // Retourne -1 si aucun livre n'est trouvé
     }
@@ -152,7 +153,7 @@ public class BookDAO {
                 books.add(book);
             }
         } catch (SQLException e) {
-            System.err.println("Erreur lors de la récupération des livres : " + e.getMessage());
+            logger.severe("Erreur lors de la recuperation de tous les livres : " + e.getMessage());
         }
         
         return books;
