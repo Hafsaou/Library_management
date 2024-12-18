@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment {
         MAVEN_HOME = tool 'Maven'
+        SONAR_PROJECT_KEY = 'Library-management'
+        SONAR_SCANNER_HOME = tool 'SonarQubeScanner'
     }
     stages {
        stage('checkout') {
@@ -39,13 +41,19 @@ pipeline {
             }
         }
         stage('Quality Analysis') {
-             steps {
-               echo 'sonar'
-//                 withSonarQubeEnv('SonarQube') {
-//                     sh '${MAVEN_HOME}/bin/mvn sonar:sonar'
-//                 }
-        }
-        }
+                    steps {
+        				withCredentials([string(credentialsId: 'Library-management-token', variable: 'SONAR_TOKEN')]) {
+
+        					withSonarQubeEnv('SonarQube') {
+        						sh """
+                                     mvn sonar:sonar \
+                                    -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                                    -Dsonar.login=${SONAR_TOKEN}
+                            	"""
+        					}
+        				}
+        			}
+   }
         stage('Deploy') {
             steps {
                 echo 'Déploiement simulé réussi'
