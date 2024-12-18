@@ -96,11 +96,13 @@ public class BookDAO {
     }
 
 
-    public  static int getLastInsertedBookId() {
+    public  static int getLastInsertedBookId() throws SQLException {
         String query = "SELECT id FROM books ORDER BY id DESC LIMIT 1";
-        try (Connection connection = DbConnection.getConnection()) {
-            PreparedStatement stmt = connection.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
+        try (
+                Connection connection = DbConnection.getConnection();
+                PreparedStatement stmt = connection.prepareStatement(query);
+                ResultSet rs = stmt.executeQuery()
+        ){
             if (rs.next()) {
                 System.out.println(rs.getInt("id"));
                 return rs.getInt("id");

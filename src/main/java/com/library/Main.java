@@ -16,11 +16,9 @@ public class Main {
 
         // Création des services
         BookService bookService = new BookService();
-        Student student = new Student(1, "John Doe");
         StudentService studentService = new StudentService();
         BorrowDAO borrowDAO = new BorrowDAO();  // Création de BorrowDAO
         BorrowService borrowService = new BorrowService(borrowDAO);  // Passer BorrowDAO au constructeur de BorrowService
-        Book book = new Book("Effective Java", "Joshua Bloch", "123456", 2017);
 
         
         boolean running = true;
@@ -49,7 +47,7 @@ public class Main {
                     String isbn= scanner.nextLine();
                     System.out.print("Entrez l'auteur published year ");
                     int publishedYear = scanner.nextInt();
-                    book = new Book(title, author,isbn,publishedYear);
+                    Book book = new Book(title, author,isbn,publishedYear);
                     bookService.addBook(book);
                     break;
 
@@ -60,7 +58,7 @@ public class Main {
                 case 3:
                     System.out.print("Entrez le nom de l'étudiant: ");
                     String studentName = scanner.nextLine();
-                    student = new Student(studentName);
+                    Student student = new Student(studentName);
                     studentService.addStudent(student);
                     break;
 
