@@ -1,5 +1,7 @@
 package com.library.util;
 
+import com.library.Exception.ConfigurationException;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,12 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-// Custom exception for configuration-related errors
-class ConfigurationException extends Exception {
-    public ConfigurationException(String message, Throwable cause) {
-        super(message, cause);
-    }
-}
+
+
 public class DbConnection {
     private static String dbUrl;
     private static String dbUser;
@@ -34,13 +32,26 @@ public class DbConnection {
             dbUser = props.getProperty("db.user");
             dbPassword = props.getProperty("db.password");
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            try {
+                throw new ConfigurationException("Configuration file not found", e);
+            } catch (ConfigurationException ex) {
+                throw new RuntimeException(ex);
+            }
         } catch (IOException e) {
-            throw new RuntimeException(new ConfigurationException("Error loading configuration file", e));
+            try {
+                throw new ConfigurationException("Error loading configuration file", e);
+            } catch (ConfigurationException ex) {
+                throw new RuntimeException(ex);
+            }
 
         }
 
     }
+    /**
+     * Default constructor for DbConnection.
+     * This constructor is not intended to be used directly.
+     * DbConnection should be used through its static methods.
+     */
     public DbConnection() throws FileNotFoundException {
     }
 

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e442cc-6891-4d0f-85c1-29eb4c231a29" name="Changes" comment="" />
+    <list default="true" id="07e442cc-6891-4d0f-85c1-29eb4c231a29" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/Exception/ConfigurationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/util/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/util/DbConnection.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,6 +183,7 @@
       <workItem from="1734476140494" duration="635000" />
       <workItem from="1734477038652" duration="59000" />
       <workItem from="1734516480154" duration="10510000" />
+      <workItem from="1734560859017" duration="738000" />
     </task>
     <servers />
   </component>
