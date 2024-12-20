@@ -60,11 +60,11 @@ pipeline {
     post {
         success {
             echo 'Build successful'
-            // emailext to: 'youremail@example.com', subject: 'Build Success', body: 'The build has been completed successfully.'
+             mail to: 'hafsaougha17@gmail.com', subject: 'Build Success', body: 'The build has been completed successfully.'
         }
         failure {
             echo 'Build failed'
-            // emailext to: 'youremail@example.com', subject: 'Build Failed', body: 'The build has failed.'
+            mail to: 'hafsaougha17@gmail.com', subject: 'Build Failed', body: 'The build has failed.'
         }
     }
 }
